@@ -1,9 +1,12 @@
 <?php
 class Manager
 {
+	protected $db;
 	protected function dbconnect() {
-		$db = new PDO('mysql:host=localhost;dbname=projet4;charset=utf8', 'root', '');
-		return $db;
+		if(!$this->db) {
+			$this->db =  new PDO('mysql:host=localhost;dbname=projet4;charset=utf8', 'root', '');
+		}
+		
 	}
 }
 /*

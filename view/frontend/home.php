@@ -12,7 +12,7 @@
         </h3>
     
         <p>
-            <?= nl2br(htmlspecialchars($lastPost['content_news'])) ?>
+            <?= nl2br($lastPost['content_news']) ?>
             <br />
             <em><a href="index.php?action=post&amp;id=<?php echo $lastPost['id']; ?>">Commentaires</a></em>
         </p>

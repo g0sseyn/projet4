@@ -14,12 +14,20 @@ html body {
 h2 {
     text-align: center;
 }
-.news p
+
+.news
 {
     background-color: rgba(163, 181, 225, 0.6);
-    margin-top:0px;
+    margin:0px;
     color: #296478;
 }
+#articlesForm {
+    text-align: center;
+}
+.center {
+    text-align: center;
+}
+
 a
 {
     text-decoration: none;
@@ -45,4 +53,7 @@ header + div {
 }
 .container-fluid .navbar-nav  {
     float: right;
+}
+form {
+    margin-top: 30px;
 }

@@ -3,6 +3,15 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
+function listPostsAdmin()
+{
+    $postManager = new PostManager();
+    $commentManager = new CommentManager();
+    $posts = $postManager->getPosts();
+    $comments = $commentManager->getAllComments();
+
+   require('/view/backend/admin.php');
+}
 function listPosts()
 {
     $postManager = new PostManager();
@@ -20,6 +29,16 @@ function post()
     $comments = $commentManager->getComments($_GET['id']);
 
     require('view/frontend/postView.php');
+}
+function adminPost()
+{
+		
+	if (isset($_GET['id'])){
+		$postManager = new PostManager();
+    	$post = $postManager->getPost($_GET['id']); 
+    }  
+
+    require('view/backend/adminPost.php');
 }
 function addComment($postId, $author, $comment)
 {

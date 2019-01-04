@@ -10,7 +10,7 @@
         </h3>
             
         <p>
-            <?= nl2br(htmlspecialchars($post['content_news'])) ?>
+            <?= nl2br($post['content_news']) ?>
         </p>
     </div>
 
