@@ -21,7 +21,7 @@ while ($data = $posts->fetch())
 ?>
     <tr>
         <td>
-            <a href="index.php?action=post&amp;id=<?php echo $data['id']; ?>"><?php echo htmlspecialchars($data['title_news']); ?></a>
+            <a href="chapitre-<?php echo $data['id']; ?>"><?php echo htmlspecialchars($data['title_news']); ?></a>
         </td>
         <td class="center"><a href="index.php?action=adminPost&amp;id=<?php echo $data['id']; ?>" class="btn btn-success">Modifier</a></td>
         <td class="center"><a href="index.php?action=deletePost&amp;id=<?php echo $data['id']; ?>" class="btn btn-danger">Supprimer</a></td>

@@ -7,14 +7,14 @@
     <div class="news col-lg-3">
         <h2>Dernier chapitre mis en ligne </h2>
         <h3>
-            <a href="index.php?action=post&amp;id=<?php echo $lastPost['id']; ?>"><?php echo htmlspecialchars($lastPost['title_news']); ?></a>
+            <a href="chapitre-<?php echo $lastPost['id']; ?>"><?php echo htmlspecialchars($lastPost['title_news']); ?></a>
             <em>le <?php echo $lastPost['creation_date_news_fr']; ?></em>
         </h3>
     
         <p>
             <?= nl2br($lastPost['content_news']) ?>
             <br />
-            <em><a href="index.php?action=post&amp;id=<?php echo $lastPost['id']; ?>">Commentaires</a></em>
+            <em><a href="chapitre-<?php echo $lastPost['id']; ?>">Commentaires</a></em>
         </p>
      </div>
      <div class="col-lg-3">

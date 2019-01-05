@@ -1,6 +1,8 @@
 <?php
-require('controller/frontend.php');
-require('controller/backend.php');
+session_start();
+require('controller/postController.php');
+require('controller/commentController.php');
+require('controller/userController.php');
 try {
 	if (isset($_POST['pseudo']) && isset($_POST['pass'])){
 
@@ -31,9 +33,9 @@ try {
 	            throw new Exception('Aucun identifiant de billet envoyé');
 	        }
 	    }
-	    elseif ($_GET['action'] == 'postNews') {
+	    elseif ($_GET['action'] == 'addPost') {
 	    	if (!empty($_POST['title']) && !empty($_POST['content'])) {	    		
-	            addNews($_POST['title'], $_POST['content'],$_POST['imgURL']);	        
+	            addPost($_POST['title'], $_POST['content'],$_POST['imgURL']);	        
 	        }
 	        else {
 	            throw new Exception('Tous les champs ne sont pas remplis !');
@@ -63,6 +65,9 @@ try {
 	            updatePost($_GET['id'],$_POST['title'],$_POST['content'],$_POST['imgURL']);
 	        }	    	
 	    } 
+	    elseif ($_GET['action'] == 'adminDeco'){
+	    	adminDeco();
+	    }
 	}
 	else {
 	    showHome();	   

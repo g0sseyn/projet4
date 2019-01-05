@@ -21,10 +21,15 @@
 	 			</div>
 		        <div class="container-fluid">
 		          <ul class="nav navbar-nav">
-		            <li> <a href="http://localhost/projet4/index.php">Accueil</a> </li>
-		            <li> <a href="http://localhost/projet4/index.php?action=listPosts">tous les chapitres</a> </li>
-		            <li> <a href="http://localhost/projet4/view/frontend/auth.php">s'identifié</a> </li>
-		            <li> <a href="http://localhost/projet4/index.php?action=admin">administration</a> </li>             
+		            <li> <a href="http://localhost/projet4/index.html">Accueil</a> </li>
+		            <li> <a href="http://localhost/projet4/chapitre">Tous les chapitres</a> </li>
+		            <?php if (isAdmin()) { ?>
+		            	<li> <a href="http://localhost/projet4/index.php?action=auth">Administration</a> </li>
+		            	<li> <a href="http://localhost/projet4/index.php?action=adminDeco">Se déconnecter</a> </li>  
+		            <?php }
+		            else { ?>
+		               <li> <a href="http://localhost/projet4/index.php?action=auth">s'identifié</a> </li>   
+		               <?php }; ?>     
 		          </ul>          
 		        </div>
 	      	</nav>

@@ -25,7 +25,7 @@ ob_start(); ?>
 
 else {
     ob_start(); ?>      
-    <form action="http://localhost/projet4/index.php?action=postNews" method="post" class='col-lg-offset-2 col-lg-8 well'>
+    <form action="http://localhost/projet4/index.php?action=addPost" method="post" class='col-lg-offset-2 col-lg-8 well'>
         <legend id="articlesForm">Ajouter un article</legend>
         <div id="newArticleForm">
             <div class="form-group">
