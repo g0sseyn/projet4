@@ -35,7 +35,7 @@ $posts->closeCursor();
     </table>
     <table class="col-lg-offset-2 col-lg-8 table-bordered table-striped">
        <caption id="commentCaption">
-           <h3>Supprimer ou modifier un commentaire</h3>
+           <h3>Supprimer ou modifier un commentaire signalé</h3>
        </caption> 
        <thead class="commentTable">
            <tr>
@@ -46,24 +46,51 @@ $posts->closeCursor();
        </thead>
        <tbody class="commentTable">
 <?php 
-while ($com = $comments->fetch())
-{
+while ($com = $signaledComments->fetch()) {   
 ?>
     <tr>
         <td>
              <?php echo htmlspecialchars($com['comment']); ?>
         </td>
-        <td class="center"><a href="index.php?action=editComment&amp;id=<?php echo $com['id']; ?>" class="btn btn-success">Modifier</a></td>
+        <td class="center"><a href="index.php?action=adminComment&amp;id=<?php echo $com['id']; ?>" class="btn btn-success">Modifier</a></td>
+        <td class="center"><a href="index.php?action=deleteComment&amp;id=<?php echo $com['id']; ?>" class="btn btn-danger">Supprimer</a></td>
+    </tr>
+     
+<?php
+}
+$signaledComments->closeCursor();
+?> 
+</tbody>
+    </tbody>
+    </table>
+    <table class="col-lg-offset-2 col-lg-8 table-bordered table-striped">
+       <caption id="commentCaption">
+           <h3>Supprimer ou modifier un commentaire non signalé</h3>
+       </caption> 
+       <thead class="commentTable">
+           <tr>
+               <th class="col-lg-10">Commentaires</th>
+               <th class="col-lg-1">Modifier</th>
+               <th class="col-lg-1">Supprimer</th>               
+           </tr>
+       </thead>
+       <tbody class="commentTable">
+<?php 
+while ($com = $nonSignaledComments->fetch()) {
+ 
+?>
+    <tr>
+        <td>
+             <?php echo htmlspecialchars($com['comment']); ?>
+        </td>
+        <td class="center"><a href="index.php?action=adminComment&amp;id=<?php echo $com['id']; ?>" class="btn btn-success">Modifier</a></td>
         <td class="center"><a href="index.php?action=deleteComment&amp;id=<?php echo $com['id']; ?>" class="btn btn-danger">Supprimer</a></td>
     </tr>
      
 <?php
 } 
-$comments->closeCursor();
+$nonSignaledComments->closeCursor();
 ?> 
-</tbody>
-</table>
-    
 <?php $content = ob_get_clean(); ?>
 
 

@@ -12,34 +12,14 @@ try {
 	    if ($_GET['action'] == 'listPosts') {
 	        listPosts();
 	    }
-	    elseif ($_GET['action'] == 'post') {
-	        if (isset($_GET['id']) && $_GET['id'] > 0) {
-	            post();
-	        }
-	        else {
-	            throw new Exception('Aucun identifiant de billet envoyé');
-	        }
+	    elseif ($_GET['action'] == 'post') {	       
+	        post(); 
 	    }
-	    elseif ($_GET['action'] == 'addComment') {
-	        if (isset($_GET['id']) && $_GET['id'] > 0) {
-	            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-	                addComment($_GET['id'], $_POST['author'], $_POST['comment']);
-	            }
-	            else {
-	                throw new Exception('Tous les champs ne sont pas remplis !');
-	            }
-	        }
-	        else {
-	            throw new Exception('Aucun identifiant de billet envoyé');
-	        }
+	    elseif ($_GET['action'] == 'addComment') {	       
+	    	addComment();	       
 	    }
-	    elseif ($_GET['action'] == 'addPost') {
-	    	if (!empty($_POST['title']) && !empty($_POST['content'])) {	    		
-	            addPost($_POST['title'], $_POST['content'],$_POST['imgURL']);	        
-	        }
-	        else {
-	            throw new Exception('Tous les champs ne sont pas remplis !');
-	        }
+	    elseif ($_GET['action'] == 'addPost') {	    		    		
+	        addPost();	        
 	    }
 	    elseif ($_GET['action'] == 'auth'){	    	
 	    	showAuth();
@@ -50,23 +30,26 @@ try {
 	    elseif ($_GET['action'] == 'adminPost'){	    	
 	    	adminPost();	    	
 	    }
-	    elseif ($_GET['action'] == 'deletePost'){
-	    	 if (isset($_GET['id']) && $_GET['id'] > 0) {
-	            deletePost();
-	        }	    	
+	    elseif ($_GET['action'] == 'deletePost'){	    	
+	        deletePost();	           	
 	    } 
-	    elseif ($_GET['action'] == 'deleteComment'){
-	    	 if (isset($_GET['id']) && $_GET['id'] > 0) {
-	            deleteComment();
-	        }	    	
+	    elseif ($_GET['action'] == 'deleteComment'){	    
+	        deleteComment();	       	    	
 	    } 
 	    elseif ($_GET['action'] == 'updatePost'){
-	    	 if (isset($_GET['id']) && $_GET['id'] > 0) {
-	            updatePost($_GET['id'],$_POST['title'],$_POST['content'],$_POST['imgURL']);
-	        }	    	
+	    	updatePost();	         	
 	    } 
 	    elseif ($_GET['action'] == 'adminDeco'){
 	    	adminDeco();
+	    }
+	    elseif ($_GET['action'] == 'updateComment'){	    	 
+	        updateComment();	        	    	
+	    }
+	    elseif ($_GET['action'] == 'adminComment'){	    	
+	        adminComment();	       	    	
+	    }
+	    elseif ($_GET['action'] == 'signalComment'){	    	
+	        signalComment();	       	    	
 	    }
 	}
 	else {

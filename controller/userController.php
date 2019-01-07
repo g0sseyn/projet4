@@ -1,22 +1,15 @@
 <?php 
-function verifyPass($pseudo,$verifpass)
-{
+function verifyPass($pseudo,$verifpass){
     $userManager = new UserManager();
-
     $testedpass = $userManager->getPass($pseudo);
     $isPasswordCorrect = password_verify($verifpass, $testedpass['pass']);
-    if ($isPasswordCorrect) {        
-        $_SESSION['id'] = $testedpass['id'];
-        $_SESSION['pseudo'] = $pseudo;
-        echo 'Vous êtes connecté !';
-        header('Location: index.php');
+    if (!$isPasswordCorrect) {        
+        throw new Exception('Mauvais identifiant ou mot de passe !'); 
     }
-    else {
-        echo 'Mauvais identifiant ou mot de passe !';
-
-    }
+    $_SESSION['id'] = $testedpass['id'];
+    $_SESSION['pseudo'] = $pseudo;    
+    header('Location: index.php');
 }
-
 function isAdmin(){
     if (isset($_SESSION['pseudo'])&&($_SESSION['pseudo']==='admin')){
         return true;
@@ -26,10 +19,8 @@ function isAdmin(){
 function showAuth(){
     if (isset($_SESSION['pseudo'])&&($_SESSION['pseudo']==='admin')){
         header('Location: index.php?action=admin');
-    }
-    else {
-    require('view/frontend/auth.php');
-    }
+    }    
+    require('view/frontend/auth.php');    
 }
 function adminDeco(){
     session_destroy();
