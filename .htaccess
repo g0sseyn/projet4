@@ -1,0 +1,6 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteRule ^index.html$  /projet4/index.php [L]
+RewriteRule ^chapitre-([0-9]+)$   /projet4/index.php?action=post&id=$1 [L]
+RewriteRule ^chapitre$   /projet4/index.php?action=listPosts [L]
