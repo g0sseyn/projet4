@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<form action="http://localhost/projet4/index.php" method="post"> 
+<form action="http://a-guillaume.ovh/projet4/index.php?action=login" method="post"> 
 	<input type="text" name="pseudo" /> 
 	<input type="password" name="pass" /> 
 	<input type="submit" value="s'identifier" />

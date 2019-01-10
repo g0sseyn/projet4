@@ -9,14 +9,14 @@ while ($data = $posts->fetch())
 ?>
     <div class="news">
         <h3>
-            <a href="chapitre-<?php echo $data['id']; ?>"><?php echo htmlspecialchars($data['title_news']); ?></a>
+            <a href="<?php echo $data['id']; ?>-<?php $title = str_replace(' ', '-', $data['title_news']);echo $title; ?>"><?php echo htmlspecialchars($data['title_news']); ?></a>
             <em>le <?php echo $data['creation_date_news_fr']; ?></em>
         </h3>
     
         <p>
             <?= nl2br($data['content_news']) ?>
             <br />
-            <em><a href="chapitre-<?php echo $data['id']; ?>">Commentaires</a></em>
+            <em><a href="<?php echo $data['id']; ?>-<?php $title = str_replace(' ', '-', $data['title_news']);echo $title; ?>">Commentaires</a></em>
         </p>
      </div>
 <?php

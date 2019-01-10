@@ -1,6 +1,16 @@
 Options +FollowSymlinks
 RewriteEngine On
 
+RewriteRule ^([0-9]+)-  /projet4/chapitre-$1 [NC]
+
 RewriteRule ^index.html$  /projet4/index.php [L]
 RewriteRule ^chapitre-([0-9]+)$   /projet4/index.php?action=post&id=$1 [L]
-RewriteRule ^chapitre$   /projet4/index.php?action=listPosts [L]
+RewriteRule ^chapitres$   /projet4/index.php?action=listPosts [L]
+RewriteRule ^admin$   /projet4/index.php?action=admin [L]
+RewriteRule ^authentification$   /projet4/index.php?action=auth [L]
+RewriteRule ^adminPost$   /projet4/index.php?action=adminPost [L]
+RewriteRule ^adminComment-([0-9]+)$   /projet4/index.php?action=adminComment&id=$1 [L]
+RewriteRule ^deleteComment-([0-9]+)$   /projet4/index.php?action=deleteComment&id=$1 [L]
+RewriteRule ^adminPost-([0-9]+)$   /projet4/index.php?action=adminPost&id=$1 [L]
+RewriteRule ^deletePost-([0-9]+)$   /projet4/index.php?action=deletePost&id=$1 [L]
+RewriteRule ^adminDeco$   /projet4/index.php?action=adminDeco [L]

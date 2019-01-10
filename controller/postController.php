@@ -1,6 +1,5 @@
 <?php
 require_once('model/PostManager.php');
-require_once('model/UserManager.php');
 require_once('model/CommentManager.php');
 
 
@@ -12,26 +11,22 @@ function addPost(){
         throw new Exception('Tous les champs ne sont pas remplis !');
     }
     $postManager = new PostManager();
-    $affectedLines = $postManager->postNews($_POST['title'], $_POST['content'],$_POST['imgURL']);
+    $affectedLines = $postManager->addPost($_POST['title'], $_POST['content'],$_POST['imgURL']);
 
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter l\'article !');
     }    
-    header('Location: index.html');
-    
+    header('Location: admin');    
 }
 function deletePost(){
     if (!isAdmin()) {
         throw new Exception('Veuillez vous identifier');
     }
     if (isset($_GET['id']) && $_GET['id'] > 0) {
-	$postManager = new PostManager();
-	$commentManager = new CommentManager();
-
-	$commentManager->deleteComments($_GET['id']);
+	$postManager = new PostManager();	
 	$postManager->deletePost($_GET['id']);
     }
-	header('Location: index.php?action=admin');
+	header('Location: admin');
 }
 function updatePost(){
     if (!isAdmin()) {
@@ -41,7 +36,7 @@ function updatePost(){
 	   $postManager = new PostManager();
 	   $postManager->updatePost($_GET['id'],$_POST['title'],$_POST['content'],$_POST['imgURL']);
     }
-	header('Location: index.php?action=admin');
+	header('Location: admin');
 
 }
 function listPostsAdmin(){
@@ -54,7 +49,7 @@ function listPostsAdmin(){
     $signaledComments = $commentManager->getAllSignaledComments();
     $nonSignaledComments = $commentManager->getAllNonSignaledComments();
 
-   require('/view/backend/admin.php');
+   require('view/backend/admin.php');
 }
 function listPosts(){
     $postManager = new PostManager();
@@ -85,7 +80,6 @@ function adminPost()
         $postManager = new PostManager();
         $post = $postManager->getPost($_GET['id']);        
     }  
-
     require('view/backend/adminPost.php');
 }
 function showHome(){

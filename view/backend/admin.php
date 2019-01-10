@@ -1,6 +1,6 @@
 <?php ob_start(); ?>   
     <div class="col-lg-offset-2 col-lg-8">
-        <a href="index.php?action=adminPost" class="btn btn-primary btn-block">Ajouter un nouvelle article</a>
+        <a href="adminPost" class="btn btn-primary btn-block">Ajouter un nouvelle article</a>
     </div>
 
     <table class="col-lg-offset-2 col-lg-8 table-bordered table-striped">
@@ -21,10 +21,10 @@ while ($data = $posts->fetch())
 ?>
     <tr>
         <td>
-            <a href="chapitre-<?php echo $data['id']; ?>"><?php echo htmlspecialchars($data['title_news']); ?></a>
+            <a href="<?php echo $data['id']; ?>-<?php $title = str_replace(' ', '-', $data['title_news']);echo $title; ?>"><?php echo htmlspecialchars($data['title_news']); ?></a>
         </td>
-        <td class="center"><a href="index.php?action=adminPost&amp;id=<?php echo $data['id']; ?>" class="btn btn-success">Modifier</a></td>
-        <td class="center"><a href="index.php?action=deletePost&amp;id=<?php echo $data['id']; ?>" class="btn btn-danger">Supprimer</a></td>
+        <td class="center"><a href="adminPost-<?php echo $data['id']; ?>" class="btn btn-success">Modifier</a></td>
+        <td class="center"><a href="deletePost-<?php echo $data['id']; ?>" class="btn btn-danger">Supprimer</a></td>
     </tr>
      
 <?php
@@ -34,17 +34,17 @@ $posts->closeCursor();
     </tbody>
     </table>
     <table class="col-lg-offset-2 col-lg-8 table-bordered table-striped">
-       <caption id="commentCaption">
+       <caption id="commentSignaledCaption">
            <h3>Supprimer ou modifier un commentaire signalé</h3>
        </caption> 
-       <thead class="commentTable">
+       <thead class="commentSignaledTable">
            <tr>
                <th class="col-lg-10">Commentaires</th>
                <th class="col-lg-1">Modifier</th>
                <th class="col-lg-1">Supprimer</th>               
            </tr>
        </thead>
-       <tbody class="commentTable">
+       <tbody class="commentSignaledTable">
 <?php 
 while ($com = $signaledComments->fetch()) {   
 ?>
@@ -52,8 +52,8 @@ while ($com = $signaledComments->fetch()) {
         <td>
              <?php echo htmlspecialchars($com['comment']); ?>
         </td>
-        <td class="center"><a href="index.php?action=adminComment&amp;id=<?php echo $com['id']; ?>" class="btn btn-success">Modifier</a></td>
-        <td class="center"><a href="index.php?action=deleteComment&amp;id=<?php echo $com['id']; ?>" class="btn btn-danger">Supprimer</a></td>
+        <td class="center"><a href="adminComment-<?php echo $com['id']; ?>" class="btn btn-success">Modifier</a></td>
+        <td class="center"><a href="deleteComment-<?php echo $com['id']; ?>" class="btn btn-danger">Supprimer</a></td>
     </tr>
      
 <?php
@@ -64,17 +64,17 @@ $signaledComments->closeCursor();
     </tbody>
     </table>
     <table class="col-lg-offset-2 col-lg-8 table-bordered table-striped">
-       <caption id="commentCaption">
+       <caption id="commentNonSignaledCaption">
            <h3>Supprimer ou modifier un commentaire non signalé</h3>
        </caption> 
-       <thead class="commentTable">
+       <thead class="commentNonSignaledTable">
            <tr>
                <th class="col-lg-10">Commentaires</th>
                <th class="col-lg-1">Modifier</th>
                <th class="col-lg-1">Supprimer</th>               
            </tr>
        </thead>
-       <tbody class="commentTable">
+       <tbody class="commentNonSignaledTable">
 <?php 
 while ($com = $nonSignaledComments->fetch()) {
  
@@ -83,8 +83,8 @@ while ($com = $nonSignaledComments->fetch()) {
         <td>
              <?php echo htmlspecialchars($com['comment']); ?>
         </td>
-        <td class="center"><a href="index.php?action=adminComment&amp;id=<?php echo $com['id']; ?>" class="btn btn-success">Modifier</a></td>
-        <td class="center"><a href="index.php?action=deleteComment&amp;id=<?php echo $com['id']; ?>" class="btn btn-danger">Supprimer</a></td>
+        <td class="center"><a href="adminComment-<?php echo $com['id']; ?>" class="btn btn-success">Modifier</a></td>
+        <td class="center"><a href="deleteComment-<?php echo $com['id']; ?>" class="btn btn-danger">Supprimer</a></td>
     </tr>
      
 <?php

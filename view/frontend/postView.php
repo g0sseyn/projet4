@@ -1,11 +1,11 @@
 
 <?php ob_start(); ?>
 <h1>Billet simple pour l'Alaska</h1>
-    <p><a href="index.html">Retour à la liste des billets</a></p>
+    <p><a href="chapitres">Retour à la liste des chapitres</a></p>
 
     <div class="news">
         <h3>
-            <a href="chapitre-<?php echo $post['id']; ?>"><?php echo htmlspecialchars($post['title_news']); ?></a>
+            <a href="<?php echo $post['id']; ?>-<?php $title = str_replace(' ', '-', $post['title_news']);echo $title; ?>"><?php echo htmlspecialchars($post['title_news']); ?></a>
             <em>le <?= $post['creation_date_news_fr'] ?></em>
         </h3>
             

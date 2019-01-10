@@ -1,9 +1,6 @@
 <?php
-
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-
-
 function addComment()
 {   
     if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -30,7 +27,7 @@ function deleteComment(){
     $commentManager = new CommentManager();
     $commentManager->deleteComment($_GET['id']);
     }    
-    header('Location: index.php?action=admin');
+    header('Location: admin');
 }
 function adminComment(){
     if (!isAdmin()) {
@@ -50,7 +47,7 @@ function updateComment(){
         $commentManager = new CommentManager();
         $commentManager->updateComment($_GET['id'],$_POST['comment']);        
     }
-    header('Location: index.php?action=admin');
+    header('Location: admin');
 }
 function signalComment(){
     if (isset($_GET['id'])&&isset($_GET['postId'])){  
@@ -60,6 +57,5 @@ function signalComment(){
     }
     else {
         header('Location: index.html');
-    }
-    
+    }    
 }

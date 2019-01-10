@@ -1,28 +1,30 @@
 <?php 
-function verifyPass($pseudo,$verifpass){
+require_once('model/userManager.php');
+function verifyPass(){
     $userManager = new UserManager();
-    $testedpass = $userManager->getPass($pseudo);
-    $isPasswordCorrect = password_verify($verifpass, $testedpass['pass']);
+    $userInfo = $userManager->userInfo($_POST['pseudo']);
+    $isPasswordCorrect = password_verify($_POST['pass'], $userInfo['pass']);
     if (!$isPasswordCorrect) {        
         throw new Exception('Mauvais identifiant ou mot de passe !'); 
-    }
-    $_SESSION['id'] = $testedpass['id'];
-    $_SESSION['pseudo'] = $pseudo;    
-    header('Location: index.php');
+    }   
+    $_SESSION['pseudo'] = $userInfo['pseudo'];
+    $_SESSION['is_admin'] = $userInfo['is_admin'];
+
+    header('Location: admin');
 }
 function isAdmin(){
-    if (isset($_SESSION['pseudo'])&&($_SESSION['pseudo']==='admin')){
+    if (isset($_SESSION['is_admin'])&&($_SESSION['is_admin']==true)){
         return true;
     }
     return false;
 }
 function showAuth(){
-    if (isset($_SESSION['pseudo'])&&($_SESSION['pseudo']==='admin')){
-        header('Location: index.php?action=admin');
+    if (isAdmin()){
+        header('Location: admin');
     }    
     require('view/frontend/auth.php');    
 }
 function adminDeco(){
     session_destroy();
-    header('Location: index.php');
+    header('Location: index.html');
 }

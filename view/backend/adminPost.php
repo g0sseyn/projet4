@@ -1,6 +1,6 @@
 <?php if(isset($_GET['id']) && $_GET['id'] > 0){
 ob_start(); ?>      
-    <form action="http://localhost/projet4/index.php?action=updatePost&amp;id=<?php echo $_GET['id']; ?>" method="post" class='col-lg-offset-2 col-lg-8 well'>
+    <form action="http://a-guillaume.ovh/projet4/index.php?action=updatePost&amp;id=<?php echo $_GET['id']; ?>" method="post" class='col-lg-offset-2 col-lg-8 well'>
         <legend id="articlesForm">Modifier un article</legend>
         <div id="newArticleForm">
             <div class="form-group">
@@ -13,7 +13,7 @@ ob_start(); ?>
             </div>
             <div class="form-group">
                 <label for="content">Contenu : </label>
-                <textarea id="content" name='content' class="form-control"><?= nl2br($post['content_news']) ?></textarea>
+                <textarea id="content" name='content' class="form-control" required><?= nl2br($post['content_news']) ?></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Modifier l'article</button>
         </div>
@@ -25,7 +25,7 @@ ob_start(); ?>
 
 else {
     ob_start(); ?>      
-    <form action="http://localhost/projet4/index.php?action=addPost" method="post" class='col-lg-offset-2 col-lg-8 well'>
+    <form action="http://a-guillaume.ovh/projet4/index.php?action=addPost" method="post" class='col-lg-offset-2 col-lg-8 well'>
         <legend id="articlesForm">Ajouter un article</legend>
         <div id="newArticleForm">
             <div class="form-group">

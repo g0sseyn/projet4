@@ -7,7 +7,10 @@ $('#articlesForm').on('click',function(){
 $('#articleCaption').on('click',function(){
 	$('.articleTable').toggle('slow');
 });
-$('#commentCaption').on('click',function(){
-	$('.commentTable').toggle('slow');
+$('#commentSignaledCaption').on('click',function(){
+	$('.commentSignaledTable').toggle('slow');
+})
+$('#commentNonSignaledCaption').on('click',function(){
+	$('.commentNonSignaledTable').toggle('slow');
 })
 
