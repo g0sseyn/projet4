@@ -7,7 +7,7 @@
 while ($data = $posts->fetch())
 {
 ?>
-    <div class="news">
+    <div class="news col-lg-offset-2 col-lg-8">
         <h3>
             <a href="<?php echo $data['id']; ?>-<?php $title = str_replace(' ', '-', $data['title_news']);echo $title; ?>"><?php echo htmlspecialchars($data['title_news']); ?></a>
             <em>le <?php echo $data['creation_date_news_fr']; ?></em>
@@ -16,7 +16,7 @@ while ($data = $posts->fetch())
         <p>
             <?= nl2br($data['content_news']) ?>
             <br />
-            <em><a href="<?php echo $data['id']; ?>-<?php $title = str_replace(' ', '-', $data['title_news']);echo $title; ?>">Commentaires</a></em>
+            
         </p>
      </div>
 <?php

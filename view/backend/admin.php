@@ -60,8 +60,7 @@ while ($com = $signaledComments->fetch()) {
 }
 $signaledComments->closeCursor();
 ?> 
-</tbody>
-    </tbody>
+      </tbody>    
     </table>
     <table class="col-lg-offset-2 col-lg-8 table-bordered table-striped">
        <caption id="commentNonSignaledCaption">
@@ -91,6 +90,8 @@ while ($com = $nonSignaledComments->fetch()) {
 } 
 $nonSignaledComments->closeCursor();
 ?> 
+    </tbody>
+    </table>    
 <?php $content = ob_get_clean(); ?>
 
 

@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
     <div class="col-lg-9">
         <img id="imgHome" src="public/images/Alaska.jpg">
-        <h1 id="title">Billet simple pour l'Alaska</h1>
+        <a href="chapitres"><h1 id="title">Billet simple pour l'Alaska</h1></a>
     </div>
     
     <div class="news col-lg-3">
@@ -17,14 +17,7 @@
             <em><a href="<?php echo $lastPost['id']; ?>-<?php $title = str_replace(' ', '-', $lastPost['title_news']);echo $title; ?>">Commentaires</a></em>
         </p>
      </div>
-     <div class="col-lg-3">
-        <address class="thumbnail">
-            <p>Vous pouvez me contacter à cette adresse :</p>
-            <strong>Jean FORTEROCHE</strong><br>
-            Allée du Froid<br>
-            30755 alaska-sur-loire<br>
-        </address>
-     </div>
+
 
 <?php $content = ob_get_clean(); ?>
 

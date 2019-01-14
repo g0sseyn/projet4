@@ -28,15 +28,29 @@
 		            	<li> <a href="adminDeco">Se déconnecter</a> </li>  
 		            <?php }
 		            else { ?>
-		               <li> <a href="authentification">s'identifié</a> </li>   
+		               <li> <a href="authentification">s'identifier</a> </li>   
 		               <?php }; ?>     
 		          </ul>          
 		        </div>
 	      	</nav>
 	    </header> 
-	    <div>
+	    <div class="site-content">
         	<?= $content ?>        	
         </div>
+        <footer class="page-footer col-lg-12 bg-info">
+        	<div class="text-center">
+       			<address>
+            		<p>Vous pouvez me contacter à cette adresse :</p>
+            		<strong>Jean FORTEROCHE</strong><br>
+           			Allée du Froid<br>
+            		30755 alaska-sur-loire<br>
+        		</address>
+     		</div>
+     		<div class="footer-copyright text-center">© 2019 Copyright:
+      			<a href="">A.guillaume</a>
+    		</div>
+        </footer>
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="public/js/script.js"></script>
     </body>
