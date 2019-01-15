@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
     <div class="col-lg-9">
-        <img id="imgHome" src="public/images/Alaska.jpg">
+        <img id="imgHome" src="public/images/Alaska.jpg" alt="paysage de l'Alaska">
         <a href="chapitres"><h1 id="title">Billet simple pour l'Alaska</h1></a>
     </div>
     
@@ -11,11 +11,11 @@
             <em>le <?php echo $lastPost['creation_date_news_fr']; ?></em>
         </h3>
     
-        <p>
+        
             <?= nl2br($lastPost['content_news']) ?>
             <br />
             <em><a href="<?php echo $lastPost['id']; ?>-<?php $title = str_replace(' ', '-', $lastPost['title_news']);echo $title; ?>">Commentaires</a></em>
-        </p>
+        
      </div>
 
 

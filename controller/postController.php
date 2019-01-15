@@ -78,7 +78,9 @@ function adminPost()
     }    
     if (isset($_GET['id'])){
         $postManager = new PostManager();
-        $post = $postManager->getPost($_GET['id']);        
+        $commentManager = new CommentManager();
+        $post = $postManager->getPost($_GET['id']);
+        $comments = $commentManager->getComments($_GET['id']);        
     }  
     require('view/backend/adminPost.php');
 }

@@ -14,3 +14,4 @@ RewriteRule ^deleteComment-([0-9]+)$   /projet4/index.php?action=deleteComment&i
 RewriteRule ^adminPost-([0-9]+)$   /projet4/index.php?action=adminPost&id=$1 [L]
 RewriteRule ^deletePost-([0-9]+)$   /projet4/index.php?action=deletePost&id=$1 [L]
 RewriteRule ^adminDeco$   /projet4/index.php?action=adminDeco [L]
+RewriteRule ^deleteComment-([0-9]+)-([0-9]+)$   /projet4/index.php?action=deleteComment&id=$1&news_id=$2 [L]

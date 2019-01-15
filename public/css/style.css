@@ -1,3 +1,6 @@
+h1 {
+    text-align: center;
+}
 h3
 {
     background-color:rgb(163, 181, 225);
@@ -11,6 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 20px;
 }
 .site-content {
     flex: 1;
@@ -77,4 +81,42 @@ footer.page-footer {
 }
 .footer-copyright {
     background-color: #92c1d8;
+}
+.modalAuthor {
+    font-weight: bold;
+}
+@media all and (max-width: 1658px) {
+  h1#title {
+  	font-size: 3.5em;
+  }
+}
+@media all and (max-width: 1468px) {
+  h1#title {
+  	font-size: 3em;
+  }
+}
+@media all and (max-width: 1274px) {
+  h1#title {
+  	font-size: 2.5em;
+  }
+}
+@media all and (max-width: 812px) {
+  h1#title {
+  	font-size: 2em;
+  }
+}
+@media all and (max-width: 668px) {
+  h1#title {
+  	font-size: 1.5em;
+  }
+}
+@media all and (max-width: 524px) {
+  h1#title {
+  	font-size: 1em;
+  }
+}
+@media all and (max-width: 524px) {
+  h1#title {
+  	display: none;
+  }
 }

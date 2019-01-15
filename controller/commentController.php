@@ -26,8 +26,12 @@ function deleteComment(){
     if (isset($_GET['id']) && $_GET['id'] > 0) {
     $commentManager = new CommentManager();
     $commentManager->deleteComment($_GET['id']);
-    }    
-    header('Location: admin');
+    }  
+    if (isset($_GET['news_id'])&&$_GET['news_id']>0){
+        header('Location: adminPost-' . $_GET['news_id']);}
+    else {
+        header('Location:admin');
+    }
 }
 function adminComment(){
     if (!isAdmin()) {
@@ -47,7 +51,11 @@ function updateComment(){
         $commentManager = new CommentManager();
         $commentManager->updateComment($_GET['id'],$_POST['comment']);        
     }
-    header('Location: admin');
+    if (isset($_GET['news_id'])&&$_GET['news_id']>0){
+        header('Location: adminPost-' . $_GET['news_id']);}
+    else {
+        header('Location:admin');
+    }
 }
 function signalComment(){
     if (isset($_GET['id'])&&isset($_GET['postId'])){  
