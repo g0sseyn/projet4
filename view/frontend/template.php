@@ -18,7 +18,7 @@
 	    	<nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.html">Billet simple pour l'Alaska</a>
+                        <a class="navbar-brand" href="index.html" id="titleNav">Billet simple pour l'Alaska</a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-expanded="false">
                             <span class="sr-only"></span>
                             <span class="icon-bar"></span>

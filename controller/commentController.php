@@ -30,18 +30,8 @@ function deleteComment(){
     if (isset($_GET['news_id'])&&$_GET['news_id']>0){
         header('Location: adminPost-' . $_GET['news_id']);}
     else {
-        header('Location:admin');
+        header('Location: admin');
     }
-}
-function adminComment(){
-    if (!isAdmin()) {
-        throw new Exception('Veuillez vous identifier');
-    }
-    if (isset($_GET['id'])){  
-        $commentManager = new CommentManager();
-        $comment=$commentManager->getComment($_GET['id']);        
-    }
-    require('view/backend/adminComment.php');
 }
 function updateComment(){
     if (!isAdmin()) {

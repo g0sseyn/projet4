@@ -46,10 +46,9 @@ function listPostsAdmin(){
     $postManager = new PostManager();
     $commentManager = new CommentManager();
     $posts = $postManager->getPosts();
-    $signaledComments = $commentManager->getAllSignaledComments();
-    $nonSignaledComments = $commentManager->getAllNonSignaledComments();
+    $signaledComments = $commentManager->getAllSignaledComments();  
 
-   require('view/backend/admin.php');
+    require('view/backend/admin.php');
 }
 function listPosts(){
     $postManager = new PostManager();

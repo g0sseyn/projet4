@@ -5,13 +5,17 @@
 
     <div class="news col-sm-offset-2 col-sm-8">
         <h3>
-            <a href="<?php echo $post['id']; ?>-<?php $title = str_replace(' ', '-', $post['title_news']);echo $title; ?>"><?php echo htmlspecialchars($post['title_news']); ?></a>
+            <a href="<?= $post['id']; ?>-<?php $title = str_replace(' ', '-', $post['title_news']);echo $title; ?>"><?= htmlspecialchars($post['title_news']); ?></a>
+            <br/>
             <em>le <?= $post['creation_date_news_fr'] ?></em>
         </h3>
+        <?php if (isset($post['img_url'])&&$post['img_url']!=='0') { ?>       
+            <div class="image"><img src="<?= $post['img_url']?>"></div>
+        <?php ;} ?>
             
-        <p>
-            <?= nl2br($post['content_news']) ?>
-        </p>
+       
+        <?= nl2br($post['content_news']) ?>
+        
     </div>
 
     <h2 class="col-sm-12">Commentaires</h2>

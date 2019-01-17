@@ -37,11 +37,7 @@ class CommentManager extends Manager
 	public function getAllSignaledComments(){
 		$signaledComments = $this->db->query ('SELECT *  FROM comments  WHERE is_signaled = "1" ORDER BY comment_date DESC');	
 		return $signaledComments;
-	}
-	public function getAllNonSignaledComments(){
-		$nonSignaledComments = $this->db->query ('SELECT *  FROM comments  WHERE is_signaled = "0" ORDER BY comment_date DESC');	
-		return $nonSignaledComments;
-	}
+	}	
 	public function signalComment($id){
 		$signalComment = $this->db->prepare('UPDATE comments SET is_signaled = "1" WHERE id = ?');
 		$signalComment->execute(array($id));

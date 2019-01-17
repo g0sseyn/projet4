@@ -16,6 +16,12 @@ body {
     min-height: 100vh;
     padding-top: 20px;
 }
+h3 a {
+  font-size: 36px; 
+}
+h3 em {
+  font-size: 16px;
+}
 .site-content {
     flex: 1;
 }
@@ -29,6 +35,9 @@ h2 {
     background-color: #cecece;
     margin-top: 30px;
     padding-bottom: 30px;
+}
+.image img {
+  width: 100%;
 }
 .news
 {
@@ -112,11 +121,9 @@ footer.page-footer {
 }
 @media all and (max-width: 524px) {
   h1#title {
-  	font-size: 1em;
-  }
-}
-@media all and (max-width: 524px) {
-  h1#title {
   	display: none;
+  }
+  #titleNav {
+    font-size: 17px;
   }
 }

@@ -4,7 +4,7 @@ require_once('Manager.php');
 class PostManager extends Manager
 {
 	public function getPosts(){
-		$posts = $this->db->query('SELECT id, title_news, content_news, DATE_FORMAT(creation_date_news, \'%d/%m/%Y à %Hh%i\') AS creation_date_news_fr ,img_url FROM news ORDER BY creation_date_news DESC LIMIT 0, 20');
+		$posts = $this->db->query('SELECT id, title_news, content_news, DATE_FORMAT(creation_date_news, \'%d/%m/%Y à %Hh%i\') AS creation_date_news_fr ,img_url FROM news ORDER BY creation_date_news DESC');
 		return $posts;
 	}
 	public function getPost($postId){

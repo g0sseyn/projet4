@@ -8,15 +8,16 @@ while ($data = $posts->fetch())
 ?>
     <div class="news col-sm-offset-2 col-sm-8">
         <h3>
-            <a href="<?php echo $data['id']; ?>-<?php $title = str_replace(' ', '-', $data['title_news']);echo $title; ?>"><?php echo htmlspecialchars($data['title_news']); ?></a>
-            <em>le <?php echo $data['creation_date_news_fr']; ?></em>
+            <a href="<?= $data['id']; ?>-<?php $title = str_replace(' ', '-', $data['title_news']);echo $title; ?>"><?= htmlspecialchars($data['title_news']); ?></a>
+            <br/>
+            <em>le <?= $data['creation_date_news_fr']; ?></em>
         </h3>
-    
+        <?php if (isset($data['img_url'])&&$data['img_url']!=='0') { ?>       
+            <div class="image"><img src="<?= $data['img_url']?>"></div>
+        <?php ;} ?>
        
-            <?= nl2br($data['content_news']) ?>
-            <br />
-            
-       
+        <?= nl2br($data['content_news']) ?>
+        <br /> 
      </div>
 <?php
 } 
